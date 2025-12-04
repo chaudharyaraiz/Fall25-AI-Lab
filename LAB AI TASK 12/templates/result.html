@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Preview - CSV to Word</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      .table-wrap { max-height: 60vh; overflow:auto; }
+    </style>
+  </head>
+  <body class="bg-light">
+    <div class="container py-4">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="h5">Preview</h2>
+        <div>
+          <a class="btn btn-success" href="{{ url_for('download', filename=filename) }}">Download as Word</a>
+          <a class="btn btn-outline-secondary" href="{{ url_for('index') }}">Upload another</a>
+        </div>
+      </div>
+      <div class="card shadow-sm mb-4">
+        <div class="card-body table-wrap">
+          {{ table_html | safe }}
+        </div>
+      </div>
+      <footer class="text-muted small">Showing first 100 rows for preview.</footer>
+    </div>
+  </body>
+</html>
